@@ -28,14 +28,13 @@ Clone the repository:
 ```bash
 git clone https://github.com/yourusername/Taiwan-Stock-Market-Data-Crawler.git
 Navigate to the project directory:
-
+```bash
 cd Taiwan-Stock-Market-Data-Crawler
 Install the required packages:
 
-pip install -r requirements.txt
 Usage
 Configure your API token in the configuration file.
 
 Run the main crawling script to start fetching data:
-
+```bash
 python main.py
