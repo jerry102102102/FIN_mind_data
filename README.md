@@ -25,7 +25,7 @@ Requests
 Matplotlib (for data visualization)
 ## Installation
 Clone the repository:
-
+```bash
 git clone https://github.com/yourusername/Taiwan-Stock-Market-Data-Crawler.git
 Navigate to the project directory:
 
