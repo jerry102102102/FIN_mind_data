@@ -41,7 +41,7 @@ def save_progress(last_script, last_stock, last_date):
     progress = {"last_script": last_script, "last_stock": last_stock, "last_date": last_date}
     with open('progress.txt', 'w') as file:
         json.dump(progress, file)
-def main(stock_list, start_date_str, end_date_str):
+def main(stock_list, start_date_str, end_date_str,last_time_execute_stock):
     token = Config.FINMIND_API_TOKEN
     start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
     end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
@@ -54,7 +54,7 @@ def main(stock_list, start_date_str, end_date_str):
         print(f"Fetching data from {start_date_str} to {end_date_str}")
         data = fetch_institutional_investors_buy_sell(start_date_str, end_date_str, token, stock_id)
         if data is None:
-            save_progress(1, idx, None)  # 記錄進度，停止執行
+            save_progress(1, idx, start_date_str)  # 記錄進度，停止執行
             return
         if not data.empty:
             data['stock_id'] = stock_id  # 添加股票代碼作為額外欄位
@@ -66,5 +66,5 @@ if __name__ == "__main__":
     stock_list = json.loads(sys.argv[1])
     start_date = sys.argv[2]
     end_date = sys.argv[3]
-    last_time_execute_stock = sys.argv[4]
+    last_time_execute_stock = int(sys.argv[4])
     main(stock_list, start_date, end_date, last_time_execute_stock)

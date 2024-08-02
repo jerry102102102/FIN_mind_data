@@ -47,8 +47,8 @@ def main(start_date_str, end_date_str):
         date_str = current_date.strftime('%Y-%m-%d')
         print(f"Fetching data for {date_str}")
         daily_data = fetch_bank_trading_data(date_str, token)
-        if data is None:
-            save_progress(3, None, date_str)  # 記錄進度，停止執行
+        if daily_data is None:
+            save_progress(3, 0, date_str)  # 記錄進度，停止執行
             return
         if not daily_data.empty:
             filename = os.path.join('data', "TaiwanStockGovernmentBankBuySell.csv")

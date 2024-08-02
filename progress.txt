@@ -1,0 +1,1 @@
+{"last_script": 4, "last_stock": 2, "last_date": "2024-07-02"}

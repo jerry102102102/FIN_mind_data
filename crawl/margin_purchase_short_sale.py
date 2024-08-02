@@ -56,7 +56,7 @@ def main(stock_list, start_date_str, end_date_str, last_time_execute_stock):
         print(f"Fetching data from {start_date_str} to {end_date_str}")
         data = fetch_margin_purchase_short_sale(start_date_str, end_date_str, token, stock_id)
         if data is None:
-            save_progress(2, idx, None)  # 記錄進度，停止執行
+            save_progress(2, idx, start_date_str)  # 記錄進度，停止執行
             return
         if not data.empty:
             data['stock_id'] = stock_id  # 添加股票代碼作為額外欄位
