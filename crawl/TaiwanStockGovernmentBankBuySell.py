@@ -13,11 +13,14 @@ def fetch_bank_trading_data(date, token):
     params = {
         'dataset': 'TaiwanStockGovernmentBankBuySell',
         'start_date': date,
-        'end_date': date,
+        'end_date': None,
         'token': token
     }
     response = requests.get(url, params=params)
     data = response.json()
+    if "Requests reach the upper limit" in data['msg']:
+        print(f"Requests reach the upper limit for date {date}. Stopping execution.")
+        return None
     if data['msg'] == 'success':
         if len(data['data']):
             return pd.DataFrame(data['data'])
@@ -34,18 +37,19 @@ def save_to_csv(dataframe, filename):
     else:
         dataframe.to_csv(filename, index=False)
 
-def main(start_date_str):
+def main(start_date_str, end_date_str):
     token = Config.FINMIND_API_TOKEN
     start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
-    end_date = datetime(2024, 7, 1)
-    
-    all_data = pd.DataFrame()
+    end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
     
     current_date = start_date
     while current_date <= end_date:
         date_str = current_date.strftime('%Y-%m-%d')
         print(f"Fetching data for {date_str}")
         daily_data = fetch_bank_trading_data(date_str, token)
+        if data is None:
+            save_progress(3, None, date_str)  # 記錄進度，停止執行
+            return
         if not daily_data.empty:
             filename = os.path.join('data', "TaiwanStockGovernmentBankBuySell.csv")
             save_to_csv(daily_data, filename)
@@ -53,4 +57,5 @@ def main(start_date_str):
 
 if __name__ == "__main__":
     start_date = sys.argv[1]
-    main(start_date)
+    end_date = sys.argv[2]
+    main(start_date, end_date)
