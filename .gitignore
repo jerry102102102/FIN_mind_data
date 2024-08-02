@@ -1,0 +1,15 @@
+# Virtual environment
+venv/
+
+# Python files
+*.pyc
+__pycache__/
+
+# Environment variables
+.env
+
+# Progress file
+progress.txt
+
+# Data files
+data/
