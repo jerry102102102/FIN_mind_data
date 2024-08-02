@@ -12,4 +12,5 @@ __pycache__/
 progress.txt
 
 # Data files
-data/
+data/git rm --cached .env
+
