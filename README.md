@@ -15,8 +15,9 @@ pip install -r requirements.txt
 ```
 ## Usage
 ### Run Main Script
-```bash
 To execute the main script, which will run all the data fetching scripts in sequence, use the following command:
+```bash
+python main.py
 ```
 ## Scripts
 ### foreign_investment_trust_proprietary_trading_data.py
