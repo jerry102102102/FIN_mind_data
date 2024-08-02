@@ -21,25 +21,26 @@ python main.py
 ```
 ## Scripts
 ### foreign_investment_trust_proprietary_trading_data.py
-    - Dataset: TaiwanStockTotalInstitutionalInvestors
-    - CSV Output: foreign_investment_trust_proprietary_trading_data.csv
+- Dataset: TaiwanStockTotalInstitutionalInvestors
+- CSV Output: foreign_investment_trust_proprietary_trading_data.csv
 ### institutional_investors_buy_sell.py
-    - Dataset: TaiwanStockInstitutionalInvestorsBuySell
-    - CSV Output: institutional_investors_buy_sell.csv
+- Dataset: TaiwanStockInstitutionalInvestorsBuySell
+- CSV Output: institutional_investors_buy_sell.csv
 ### margin_purchase_short_sale.py
-    - Dataset: TaiwanStockMarginPurchaseShortSale
-    - CSV Output: margin_purchase_short_sale.csv
+- Dataset: TaiwanStockMarginPurchaseShortSale
+- CSV Output: margin_purchase_short_sale.csv
 ### TaiwanStockGovernmentBankBuySell.py
-    - Dataset: TaiwanStockGovernmentBankBuySell
-    - CSV Output: TaiwanStockGovernmentBankBuySell.csv
+- Dataset: TaiwanStockGovernmentBankBuySell
+- CSV Output: TaiwanStockGovernmentBankBuySell.csv
 ### TaiwanStockWarrantTradingDailyReport.py
-    - Dataset: TaiwanStockTradingDailyReport
-    - CSV Output: TaiwanStockWarrantTradingDailyReport.csv
+- Dataset: TaiwanStockTradingDailyReport
+- CSV Output: TaiwanStockWarrantTradingDailyReport.csv
 ### total_margin_purchase_short_sale.py
-    - Dataset: TaiwanStockTotalMarginPurchaseShortSale
-    - CSV Output: total_margin_purchase_short_sale.csv
+- Dataset: TaiwanStockTotalMarginPurchaseShortSale
+- CSV Output: total_margin_purchase_short_sale.csv
 ## Progress Tracking
 The progress of the script execution is saved in progress.txt. If the limit is reached or an error occurs, the script will stop and save the current progress, which includes:
-    - Last executed script
-    - Last executed stock index
-    - Last executed date (for specific scripts)
+
+- Last executed script
+- Last executed stock index
+- Last executed date (for specific scripts)
